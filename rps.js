@@ -12,46 +12,65 @@
           return "scissors"
         }
         }
-      // console.log(getComputerChoice())
+      
+    // User chooses rock
+    const rock = document.querySelector('#rock');
+    rock.addEventListener('click', () => {
+    const user = 'rock';
+    // Run the game
+    game(user,computer);
+    });
+
+    // User chooses paper
+    const paper = document.querySelector('#paper');
+    paper.addEventListener('click', () => {
+    const user = 'paper';
+    // Run the game
+    game(user,computer);
+    });
+
+    // User chooses scissors
+    const scissors = document.querySelector('#scissors');
+    scissors.addEventListener('click', () => {
+    const user = 'scissors';
+    // Run the game
+    game(user,computer);
+    });
+
+
   
-      // Input from the user and cleaning up with a check for the input
-      let user = prompt("Type: Rock, Paper, or Scissors: ");
-      user = user.toLowerCase();
-      if (user !== "rock" && user !== "paper" && user !== "scissors") {
-        console.log("Please enter a valid response: Rock, Paper, or Scissors");
-      }
-  
-      // Running the match
-      computer = getComputerChoice();
-      function game(userChoice, computerChoice) {
-  
-        // Condition if game is a tie
-        if (userChoice == computerChoice) {
-          console.log("It's a tie!")
+    // Running the match
+    computer = getComputerChoice();
+    function game(userChoice, computerChoice) {
+
+        console.log(userChoice, computerChoice)
+
+    // Condition if game is a tie
+    if (userChoice == computerChoice) {
+        console.log("It's a tie!")
+    }
+    // Conditions if user chooses rock
+    if (userChoice === "rock") {
+        if (computerChoice === "paper") {
+        console.log("Computer chose paper. You lose!");
+        } else if (computerChoice === "scissors") {
+        console.log("Computer chose scissors. You win!");
         }
-        // Conditions if user chooses rock
-        if (userChoice === "rock") {
-          if (computerChoice === "paper") {
-            console.log("Computer chose paper. You lose!");
-          } else if (computerChoice === "scissors") {
-            console.log("Computer chose scissors. You win!");
-          }
-        // Conditions if user chooses paper
-          } else if (userChoice === "paper") {
-            if (computerChoice === "scissors") {
-              console.log("Computer chose scissors. You lose!");
-            } else if (computerChoice === "rock") {
-              console.log("Computer chose rock. You win!");
-            }
-        // Conditions if user chooses scissors
-          } else if (userChoice === "scisssors") {
-            if (computerChoice === "rock") {
-              console.log("Computer chose rock. You lose!");
-            } else if (computerChoice === "paper") {
-              console.log("Computer chose paper. You win!")
-            }
-          }
+    // Conditions if user chooses paper
+        } else if (userChoice === "paper") {
+        if (computerChoice === "scissors") {
+            console.log("Computer chose scissors. You lose!");
+        } else if (computerChoice === "rock") {
+            console.log("Computer chose rock. You win!");
         }
-        
-        // Run the game within the console
-        game(user,computer)
+    // Conditions if user chooses scissors
+        } else if (userChoice === "scisssors") {
+        if (computerChoice === "rock") {
+            console.log("Computer chose rock. You lose!");
+        } else if (computerChoice === "paper") {
+            console.log("Computer chose paper. You win!")
+        }
+        }
+    }
+    
+    
