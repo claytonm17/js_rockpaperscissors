@@ -18,7 +18,7 @@
     rock.addEventListener('click', () => {
     const user = 'rock';
     // Run the game
-    game(user,computer);
+    game(user);
     });
 
     // User chooses paper
@@ -26,7 +26,7 @@
     paper.addEventListener('click', () => {
     const user = 'paper';
     // Run the game
-    game(user,computer);
+    game(user);
     });
 
     // User chooses scissors
@@ -34,43 +34,83 @@
     scissors.addEventListener('click', () => {
     const user = 'scissors';
     // Run the game
-    game(user,computer);
+    game(user);
     });
 
 
   
     // Running the match
-    computer = getComputerChoice();
-    function game(userChoice, computerChoice) {
+    function game(userChoice) {
+
+        computerChoice = getComputerChoice();
 
         console.log(userChoice, computerChoice)
 
     // Condition if game is a tie
     if (userChoice == computerChoice) {
-        console.log("It's a tie!")
+        const results = document.querySelector('#results');
+        const content = document.createElement('div');
+        content.classList.add('content');
+        content.textContent = "It's a tie!";
+        results.appendChild(content);
     }
+
     // Conditions if user chooses rock
     if (userChoice === "rock") {
+
+        // DOM Manipulation to create div inside results div
         if (computerChoice === "paper") {
-        console.log("Computer chose paper. You lose!");
+            const results = document.querySelector('#results');
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = 'Computer chose paper. You lose!';
+            results.appendChild(content);
+
+
         } else if (computerChoice === "scissors") {
-        console.log("Computer chose scissors. You win!");
+            const results = document.querySelector('#results');
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = 'Computer chose scissors. You win!';
+            results.appendChild(content);
         }
+        
     // Conditions if user chooses paper
-        } else if (userChoice === "paper") {
+    } else if (userChoice === "paper") {
+
         if (computerChoice === "scissors") {
-            console.log("Computer chose scissors. You lose!");
+            const results = document.querySelector('#results');
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = "Computer chose scissors. You lose!";
+            results.appendChild(content);
+
+
         } else if (computerChoice === "rock") {
-            console.log("Computer chose rock. You win!");
+            const results = document.querySelector('#results');
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = "Computer chose rock. You win!";
+            results.appendChild(content);
         }
+
     // Conditions if user chooses scissors
-        } else if (userChoice === "scisssors") {
+    } else if (userChoice === "scissors") {
+
         if (computerChoice === "rock") {
-            console.log("Computer chose rock. You lose!");
+            const results = document.querySelector('#results');
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = "Computer chose rock. You lose!";
+            results.appendChild(content);
+
         } else if (computerChoice === "paper") {
-            console.log("Computer chose paper. You win!")
+            const results = document.querySelector('#results');
+            const content = document.createElement('div');
+            content.classList.add('content');
+            content.textContent = "Computer chose paper. You win!";
+            results.appendChild(content);
+
         }
         }
     }
-    
-    
